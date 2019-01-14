@@ -1,28 +1,16 @@
 class getFil {
   PrintWriter output;
-  String line;
+  String[] linje;
 
-  String laes(String fil) {
-
-    BufferedReader reader = createReader(fil);
-    try {
-      line = reader.readLine();
-      reader.close();
-    } 
-    catch (IOException e) {
-      e.printStackTrace();
-    }
+  void laes(String fil) {
+      
+  String[] linjer = loadStrings(fil);
     
-    println("Læste: " + file + " : Resultat: " + line);
-    return line;
+    return linje;
   }
 
-  void skriv(String fil, String text) {
-    output = createWriter(fil); 
-    output.print(number);
-    output.flush();
-    output.close();
-    
-    println("Skrev: " + text);
+  void skriv(String fil, String tekst) {
+    String[] liste = {6,0,0,0};
+    saveStrings(fil, liste);
   }
 }
