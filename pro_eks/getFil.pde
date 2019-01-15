@@ -2,11 +2,10 @@ class getFil {
   PrintWriter output;
   String[] linje;
 
-  void laes(String fil) {
+  int laes(String fil) {
       
   String[] linjer = loadStrings(fil);
-    
-    return linje;
+  return linjer;
   }
 
   void skriv(String fil, String tekst) {
