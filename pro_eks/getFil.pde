@@ -2,14 +2,14 @@ class getFil {
   PrintWriter output;
   String[] linje;
 
-  int laes(String fil) {
+  String laes(String fil, int linje) {
       
   String[] linjer = loadStrings(fil);
-  return linjer;
+  return linjer[linje];
   }
 
   void skriv(String fil, String tekst) {
-    String[] liste = {6,0,0,0};
+    String[] liste = {"6","0","0","0"};
     saveStrings(fil, liste);
   }
 }
