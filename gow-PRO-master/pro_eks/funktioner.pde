@@ -52,6 +52,7 @@ void lukClick() {
     ingenPenge = false;
     kobPop = false;
     upPop = false;
+    dineMaend = false;
     for (int i = 0; i < bygning.length; i++) {
       if (bygning[i] == 99) {
         bygning[i] = 0;

@@ -1,6 +1,6 @@
 bygninger byg = new bygninger();
 int [] bygning = new int [100];
-boolean kobPop, pop, upPop, ingenPenge, beboer = false;
+boolean kobPop, pop, upPop, ingenPenge, beboer, dineMaend = false;
 int mus1;
 
 PImage[] byger = new PImage[6];
@@ -8,6 +8,8 @@ PImage baggrund, wood, wood1, luk, knap, lilleKnap, storKnap, maglerPenge, grid;
  
 float penge = 9000;
 int sek, pSek;
+
+ArrayList <mennesker> Mennesker = new ArrayList <mennesker>();
 
 void setup(){
   for(int i = 0; i < byger.length; i++){

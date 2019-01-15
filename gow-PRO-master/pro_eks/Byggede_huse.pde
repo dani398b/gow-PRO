@@ -11,4 +11,10 @@ void upgrade() {
 
 void beboer(){
    image(grid, 100,100);
+   image(lilleKnap,476,478,95,90);
+   text("vælg dine \n   mænd",478,510);
+}
+
+void dinman(){
+    image(grid, 100,100);
 }
