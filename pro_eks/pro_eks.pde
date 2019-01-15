@@ -1,14 +1,19 @@
 bygninger byg = new bygninger();
 int [] bygning = new int [100];
 boolean kobPop = false;
-boolean popSmed = false;
+boolean pop = false;
+int mus1;
 
-PImage smed;
+PImage[] byger = new PImage[4];
 PImage baggrund;
+PImage wood;
 
 void setup(){
-  smed = loadImage("smed.png");
-  baggrund = loadImage("græs.png");
+  for(int i = 0; i < byger.length; i++){
+    byger[i] = loadImage("pic/byg"+i+".png");
+  }
+  baggrund = loadImage("pic/græs.png");
+  wood = loadImage("pic/500x500.png");
   size(700,700, P2D);
 }
 
@@ -22,5 +27,4 @@ void draw(){
 } 
 void mousePressed(){
   byg.click(mouseX,mouseY);
-  println(bygning);
 }
