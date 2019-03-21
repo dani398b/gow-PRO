@@ -1,58 +1,37 @@
-class bygninger {
+class bygninge {
+  //opsætter vardier der bliver brugt i classen
+  int stedC;
   int sted;
-  bygninger() {
-  }
+  int hus;
+  int pladser = 15;
+  int brugtPladser;
 
   void click(int x, int y) {
-    println(ingenPenge);
-    fill(255, 0, 0);
-    sted = ((y/70)*10)+(x/70+1);
-    text(sted, x, y);
-    if (x >= 200 && x <= 500 && y >= 400 && y <= 450 && ingenPenge == true) {
-      ingenPenge = false;
-    } else if (kobPop == false && pop == false && bygning[sted-1] == 0) {
-      kobPop = true; 
-      bygning[sted-1] = 99;
-    } else if (kobPop == true && pop == false &&
-      x <= 600 && x >= 100 && y >= 100 && y <= 600) {
-      pop = true;
-      kobPop = false;
-      mus1 = round((mouseY-100)/50)+1;
-      // println(mus1);
-      popUp(mus1);
-    } else if (x <= 500 && x >= 200 && y <= 350 && y >= 250 && pop == true) {
-      Penge(mus1);
-      pop = false;
-      kobPop = false;
-    } else if (kobPop == false && pop == false && bygning[sted -1] >= 1 && bygning[sted -1] < 99) {
-      upPop = true;
-    } 
-    if (kobPop == true || pop == true || upPop == true) {
-      lukClick();
+    //tjekker hvilket flet i gridet der bliver clicket på
+    if (set == true || kobPop == false && pop== false && upPop == false && ingenPenge == false && beboer == false && dineMaend== false && stat == false && beboer == false && plads == false) {
+      fill(255, 0, 0);
+      sted = ((y/70)*10)+(x/70+1);
+      text(sted, x, y);
+      if (set == true) {
+        stat = false;
+        setHus(sted);
+      }
     }
+    //køre funktionen clickEllers der tjekker hvilket vindue der skal åbnes
+    clickEllers(sted, x, y);
   }
   void display() {
+    //visser hvor mange penge du har
     textSize(20);
     fill(255);
     textAlign(CORNER);
     text(penge, 0, 20);
-    for (int i = 0; i < bygning.length; i++) {
-      if (bygning[i] != 0 && bygning[i] != 99) {
-        image(byger[bygning[i]-1], ((i)%10)*70, (round(i/10))*70);
-      }
-    }
-    if (ingenPenge == true) {
-      ikkeNok();
-    } 
-    if (pop == true) {
-      popUp(mus1);
-    } else if (kobPop == true) {
-      popUpKob();
-    } else if (upPop == true) {
-      upgrade();
-    }
-    if (upPop == true || kobPop == true || pop == true) {
-      luk();
-    }
+    
+    //køre funktionen displayEllers der tenge skærmen
+    displayEllers(sted);
+    //for (mennesker b : Mennesker) {
+    //  b.visBilde(sted);
+    //}
+    //vis = 0;
   }
 }
