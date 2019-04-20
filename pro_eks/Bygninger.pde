@@ -29,9 +29,5 @@ class bygninge {
     
     //køre funktionen displayEllers der tenge skærmen
     displayEllers(sted);
-    //for (mennesker b : Mennesker) {
-    //  b.visBilde(sted);
-    //}
-    //vis = 0;
   }
 }

@@ -80,20 +80,6 @@ void beboer(int sted) {
       }
     }
   }
-  //if (bygning[sted -1] == 1) {
-  //  if (bygning[sted + 99] == 0) {
-  //    for (int q = 0; q < 4; q++) {
-  //      for (int i = 0; i < 4; i++) {
-  //        if (q > 0) {
-  //          if (q == 3 && i == 3) {
-  //            break;
-  //          }
-  //          //image(kryds, 120 + ((i) * 120), 120 + (q * 120), 100, 100);
-  //        }
-  //      }
-  //    }
-  //  }
-  //}
 }
 
 //Åbner vinduet med stats for hvert meneske

@@ -1,3 +1,7 @@
+import processing.sound.*;
+SoundFile[] file = new SoundFile[5];
+int song = 0;
+
 //bruges til at gemme
 PrintWriter output;
 
@@ -42,24 +46,31 @@ void setup() {
   right = loadImage("pic/right.png");
   qu = loadImage("pic/idk.png");
   kryds = loadImage("pic/50x50X.png");
-//Sætter størelsen af skærmen
+  //Sætter størelsen af skærmen
   size(700, 700);
 
-//Indsætter 14 mennesker i Arraylist dette er de fjorten mennesker man starter med som blive genereret tilfældigt
+  //Indsætter 14 mennesker i Arraylist dette er de fjorten mennesker man starter med som blive genereret tilfældigt
   for (int i = 0; i < 14; i++) {
     Mennesker.add(new mennesker());
   }
+  for (int i = 0; i < file.length; i++) {
+    file[i] = new SoundFile(this, i +".mp3");
+  }
+  file[song].play();
 }
 
 void draw() {
+  if(song > file.length){
+   song = 0; 
+  }
   //Starter med at tegne baggrunden
   image(baggrund, 0, 0);
-  
+
   //Dette bruges til at lave tid i spillet
   sek = second();
   sekFunc();
   pSek = sek;
-  
+
   //tegener et grid på baggrunden
   for (int i = 0; i < 9; i++) {
     stroke(0, 190, 0, 200);
@@ -76,6 +87,7 @@ void mousePressed() {
   byg.click(mouseX, mouseY);
 }
 
+int face=0;
 // tjekker om der bliver trykket på tastaturet
 void keyPressed() {
   //tjekker om der er trykket på p og hvis der er køre den funktionen save
@@ -87,10 +99,34 @@ void keyPressed() {
   if (key == 'o') {
     read();
   }
-  if(key == 'i') {
-    int face=0;
-   saveFrame("face"+face+".PNG"); 
-   face++;  
-}
+  if (key == 'i') {
+    
+    saveFrame("face"+face+".PNG"); 
+    face++;
+  }
 
+  if (key == 'k') {
+    for (int i = 0; i < file.length; i++) {
+      if (file[i].isPlaying()) {
+        file[i].pause();
+        song = i;
+      } else if (i == song) {
+        file[song].play();
+      }
+    }
+  }
+  if (key == 'l') {
+    file[song].stop();
+    song++;
+    if (song > file.length - 1)song = 0;
+    println(song);
+    file[song].play();
+  }
+
+  if (key == 'j') {
+    file[song].stop();
+    song--;
+    if (song < 0)song = file.length -1;
+    file[song].play();
+  }
 }
